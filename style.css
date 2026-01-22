@@ -296,8 +296,8 @@ nav a {
 }
 
 .video-col-media video {
-    width: 90%;
-    max-width: 550px;
+    width: 70%;
+    max-width: 400px;
     height: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -319,7 +319,7 @@ nav a {
     }
 
     .video-col-media video {
-        width: 80%;
+        width: 60%;
     }
 
     header {
