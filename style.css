@@ -1,0 +1,373 @@
+@charset "UTF-8";
+
+/* Base Settings */
+:root {
+    --text-color: #333;
+    --bg-color: #fafafa;
+    --accent-color: #8b7d6b;
+    /* Muted gold/brown for elegance */
+    --link-color: #555;
+    --font-serif: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HGSMinchoE", serif;
+    --font-sans: "Helvetica Neue", Arial, sans-serif;
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-serif);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 2.0;
+    letter-spacing: 0.1em;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Utilities */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.3em;
+    line-height: 2;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--accent-color);
+    margin: 20px auto 0;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    /* mix-blend-mode: difference; */
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+.header-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-text {
+    font-size: 1.8rem;
+    /* Logo size */
+    line-height: 1;
+    letter-spacing: 0.05em;
+    font-family: var(--font-serif);
+    font-weight: bold;
+    color: #fff;
+    /* Outline effect (Fukuro-moji) */
+    text-shadow:
+        1px 1px 0 #555,
+        -1px 1px 0 #555,
+        1px -1px 0 #555,
+        -1px -1px 0 #555,
+        0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    margin-right: 20px;
+    height: 100%;
+    opacity: 0.9;
+}
+
+/* Intro Section */
+.intro {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.intro p {
+    margin-bottom: 20px;
+}
+
+/* Products Grid */
+.products {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+    /* Zoom effect on hover */
+}
+
+.product-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.product-reading {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+    font-family: var(--font-sans);
+    /* Use Sans for Romaji to be clean, or Serif for consisteny. Let's use Sans for contrast or Serif for elegance. Filenames had mixed. Let's use Serif. */
+    font-family: var(--font-serif);
+}
+
+.product-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Video Zigzag Section */
+.video-section {
+    padding: 80px 0;
+}
+
+.video-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+.video-row:last-child {
+    margin-bottom: 0;
+}
+
+.video-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.video-col-media {
+    flex: 1;
+    text-align: center;
+}
+
+.video-col-text {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+.video-product-name {
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    border-bottom: 1px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.video-col-media video {
+    width: 90%;
+    max-width: 550px;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-col-media video:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .video-row,
+    .video-row:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .video-col-media video {
+        width: 80%;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #aaa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.8rem;
+}
+
+/* Closing Section */
+.closing-section {
+    padding: 80px 0 120px;
+    text-align: center;
+}
+
+.closing-content p {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 50px;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
